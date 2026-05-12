@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export', // Essencial para gerar a pasta /out
+  images: {
+    unoptimized: true, // Necessário para o GitHub Pages
+  },
+  // Se o seu site for usuario.github.io/meu-projeto/, adicione:
+  // basePath: '/meu-projeto',
 };
 
 export default nextConfig;
