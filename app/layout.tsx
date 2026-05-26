@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <html lang="pt" suppressHydrationWarning>
+      <html lang="pt" suppressHydrationWarning className="smooth-scroll">
         <head />
         <body>
           <ThemeProvider
