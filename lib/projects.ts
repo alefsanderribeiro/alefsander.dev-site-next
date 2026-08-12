@@ -105,7 +105,7 @@ export const projects: Project[] = [
     slug: "home-assistant",
     title: "Home Assistant",
     description:
-      "Automação residencial: controle de lâmpadas por comando de voz (Assist NL), integrado ao Home Assistant com Tuya e acesso via Tailscale/Cloudflare.",
+      "Automação residencial: controle de lâmpadas por comando de voz (Assist NL), integrado ao Home Assistant com Tuya.",
     tech: ["Python", "Docker", "Home Assistant", "Tuya", "IA"],
     status: "Pessoal",
   },
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     slug: "monitoramento-servidor",
     title: "Monitoramento de Servidor",
     description:
-      "Monitoramento completo do servidor com Uptime Kuma (health checks), métricas em tempo real com Netdata e alertas via Telegram.",
+      "Monitoramento completo do servidor com Uptime Kuma (health checks) e métricas em tempo real com Netdata, com alertas via Telegram.",
     tech: ["Docker", "Uptime Kuma", "Netdata", "Telegram"],
     status: "Pessoal",
   },
@@ -131,8 +131,8 @@ export const projects: Project[] = [
     slug: "searxng",
     title: "SearXNG",
     description:
-      "Metabusca privada self-hosted (~250 engines) para buscas sem rastreamento, com acesso via Caddy/Tailscale e integração ao OpenClaw.",
-    tech: ["SearXNG", "Docker", "Caddy", "Tailscale"],
+      "Metabusca privada self-hosted (~250 engines) para buscas sem rastreamento, integrada como provider de busca dos agentes.",
+    tech: ["SearXNG", "Docker"],
     status: "Pessoal",
   },
 ];
