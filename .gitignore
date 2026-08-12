@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Documentos internos de pesquisa — NÃO subir (repo público)
+/research-portfolio/
+
