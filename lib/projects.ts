@@ -33,11 +33,21 @@ export const techColors: Record<string, string> = {
   IA: "bg-fuchsia-500/10 text-fuchsia-400",
   OCR: "bg-purple-500/10 text-purple-400",
   Playwright: "bg-emerald-500/10 text-emerald-400",
+  Camoufox: "bg-lime-500/10 text-lime-400",
   SQLite: "bg-slate-500/10 text-slate-300",
-  WhatsApp: "bg-green-500/10 text-green-400",
+  CLI: "bg-zinc-500/10 text-zinc-400",
   "Home Assistant": "bg-blue-500/10 text-blue-400",
   MongoDB: "bg-green-500/10 text-green-400",
   Git: "bg-orange-500/10 text-orange-400",
+  Whisper: "bg-sky-500/10 text-sky-300",
+  Vitest: "bg-yellow-500/10 text-yellow-400",
+  "Uptime Kuma": "bg-emerald-500/10 text-emerald-300",
+  Netdata: "bg-cyan-500/10 text-cyan-300",
+  Telegram: "bg-sky-500/10 text-sky-400",
+  SearXNG: "bg-blue-500/10 text-blue-300",
+  Caddy: "bg-orange-500/10 text-orange-300",
+  Tailscale: "bg-violet-500/10 text-violet-400",
+  Tuya: "bg-indigo-500/10 text-indigo-300",
   "Nginx": "bg-emerald-500/10 text-emerald-400",
 };
 
@@ -58,7 +68,7 @@ export const projects: Project[] = [
     title: "MS Site",
     description:
       "Sistema único oferecido à empresa: site público + portal de vagas + ouvidoria + cadastro de candidatos, com dashboard de gestão integrado e suite de testes pesada (~1800 testes / 0 falhas).",
-    tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
+    tech: ["Next.js", "TypeScript", "React", "Tailwind", "Prisma", "PostgreSQL", "Vitest"],
     status: "Produção empresa",
     link: "https://msservicos.com",
     linkLabel: "Ver site",
@@ -69,7 +79,7 @@ export const projects: Project[] = [
     title: "MS-Automatizar",
     description:
       "Automação administrativa com IA: OCR de documentos, folhas de ponto, holerites, envio por WhatsApp/email e cache Redis (-95% de queries).",
-    tech: ["Python", "FastAPI", "Redis", "IA"],
+    tech: ["Python", "CLI", "Redis", "IA", "MongoDB"],
     status: "Produção empresa",
     link: "https://github.com/alefsanderribeiro/MS-Automatizar",
     linkLabel: "GitHub",
@@ -87,32 +97,32 @@ export const projects: Project[] = [
     slug: "extrator-produtos",
     title: "Extrator de Produtos",
     description:
-      "Script Python que automatiza a extração de produtos de marketplaces (ML, Amazon e Shopee) com Playwright e armazenamento em SQLite.",
-    tech: ["Python", "Playwright", "SQLite"],
+      "Script Python que automatiza a extração de produtos de marketplaces (ML, Amazon e Shopee) com Playwright, Camoufox (anti-bot) e armazenamento em SQLite.",
+    tech: ["Python", "Playwright", "Camoufox", "SQLite"],
     status: "Pessoal",
   },
   {
     slug: "home-assistant",
     title: "Home Assistant",
     description:
-      "Automação residencial: controle de lâmpadas por comando de voz, integrado ao Home Assistant com assistente local.",
-    tech: ["Python", "Docker", "Home Assistant"],
+      "Automação residencial: controle de lâmpadas por comando de voz (Assist NL), integrado ao Home Assistant com Tuya e acesso via Tailscale/Cloudflare.",
+    tech: ["Python", "Docker", "Home Assistant", "Tuya", "IA"],
     status: "Pessoal",
   },
   {
     slug: "monitoramento-servidor",
     title: "Monitoramento de Servidor",
     description:
-      "Monitoramento completo do servidor com Uptime Kuma, métricas em tempo real com Netdata e alertas via Telegram.",
-    tech: ["Docker"],
+      "Monitoramento completo do servidor com Uptime Kuma (health checks), métricas em tempo real com Netdata e alertas via Telegram.",
+    tech: ["Docker", "Uptime Kuma", "Netdata", "Telegram"],
     status: "Pessoal",
   },
   {
     slug: "alefsander-openclaw",
     title: "alefsander-openclaw",
     description:
-      "OpenClaw customizado rodando em Docker com reconhecimento de voz (Whisper), OCR e automação de navegador.",
-    tech: ["Docker", "Node.js"],
+      "OpenClaw customizado rodando em Docker com reconhecimento de voz (Whisper), OCR (Tesseract), automação de navegador (Chromium/Playwright) e Tailscale.",
+    tech: ["Docker", "Node.js", "Whisper", "OCR"],
     status: "Pessoal",
     link: "https://github.com/alefsanderribeiro/alefsander-openclaw",
     linkLabel: "GitHub",
@@ -121,8 +131,8 @@ export const projects: Project[] = [
     slug: "searxng",
     title: "SearXNG",
     description:
-      "Metabusca privada self-hosted para buscas sem rastreamento, oferecendo privacidade total na pesquisa.",
-    tech: ["Docker"],
+      "Metabusca privada self-hosted (~250 engines) para buscas sem rastreamento, com acesso via Caddy/Tailscale e integração ao OpenClaw.",
+    tech: ["SearXNG", "Docker", "Caddy", "Tailscale"],
     status: "Pessoal",
   },
 ];
