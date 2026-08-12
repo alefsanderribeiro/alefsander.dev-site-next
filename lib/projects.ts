@@ -121,7 +121,7 @@ export const projects: Project[] = [
     slug: "alefsander-openclaw",
     title: "alefsander-openclaw",
     description:
-      "OpenClaw customizado rodando em Docker com reconhecimento de voz (Whisper), OCR (Tesseract), automação de navegador (Chromium/Playwright) e Tailscale.",
+      "OpenClaw customizado rodando em Docker com reconhecimento de voz (Whisper), OCR (Tesseract), automação de navegador (Chromium/Playwright) e acesso remoto seguro.",
     tech: ["Docker", "Node.js", "Whisper", "OCR"],
     status: "Pessoal",
     link: "https://github.com/alefsanderribeiro/alefsander-openclaw",
