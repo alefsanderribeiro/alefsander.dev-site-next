@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { getProject, projects, techColors } from "@/lib/projects";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -32,7 +34,14 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <main className="min-h-screen">
+      <Header />
       <div className="container mx-auto max-w-3xl py-20 px-4">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-brand transition mb-4"
+        >
+          <ArrowLeft className="w-4 h-4" /> Voltar ao início
+        </Link>
         <Link
           href="/projetos"
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-brand transition mb-8"
@@ -80,6 +89,7 @@ export default async function ProjectPage({ params }: Props) {
           </a>
         )}
       </div>
+      <Footer />
     </main>
   );
 }

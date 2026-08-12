@@ -60,6 +60,8 @@ export const projects: Project[] = [
       "Sistema único oferecido à empresa: site público + portal de vagas + ouvidoria + cadastro de candidatos, com dashboard de gestão integrado e suite de testes pesada (~1800 testes / 0 falhas).",
     tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
     status: "Produção empresa",
+    link: "https://msservicos.com",
+    linkLabel: "Ver site",
     featured: true,
   },
   {
@@ -69,6 +71,8 @@ export const projects: Project[] = [
       "Automação administrativa com IA: OCR de documentos, folhas de ponto, holerites, envio por WhatsApp/email e cache Redis (-95% de queries).",
     tech: ["Python", "FastAPI", "Redis", "IA"],
     status: "Produção empresa",
+    link: "https://github.com/alefsanderribeiro/MS-Automatizar",
+    linkLabel: "GitHub",
   },
   {
     slug: "forticode",
@@ -110,7 +114,7 @@ export const projects: Project[] = [
       "OpenClaw customizado rodando em Docker com reconhecimento de voz (Whisper), OCR e automação de navegador.",
     tech: ["Docker", "Node.js"],
     status: "Pessoal",
-    link: "https://github.com/alefsanderribeiro",
+    link: "https://github.com/alefsanderribeiro/alefsander-openclaw",
     linkLabel: "GitHub",
   },
   {

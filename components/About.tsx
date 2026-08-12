@@ -33,18 +33,18 @@ export default function About() {
                   <pre className="whitespace-pre overflow-x-auto leading-relaxed">
                     <code className="text-blue-400">class</code> <span className="text-brand">AlefsanderDev</span>:{"\n"}
                     {"    "}def <span className="text-amber-300">__init__</span>(self):{"\n"}
-                    {"        "}self.nome = <span className="text-brand">"Alefsander"</span>{"\n"}
-                    {"        "}self.cargo = <span className="text-brand">"Dev & Automação"</span>{"\n"}
-                    {"        "}self.local = <span className="text-brand">"Porto Velho, RO"</span>{"\n"}
+                    {"        "}self.nome = <span className="text-brand">&quot;Alefsander&quot;</span>{"\n"}
+                    {"        "}self.cargo = <span className="text-brand">&quot;Dev & Automa&ccedil;&atilde;o&quot;</span>{"\n"}
+                    {"        "}self.local = <span className="text-brand">&quot;Porto Velho, RO&quot;</span>{"\n"}
                     {"        "}self.foco = [ {"\n"}
-                    {"            "}<span className="text-brand">"Sistemas Web"</span>,{"\n"}
-                    {"            "}<span className="text-brand">"Automações"</span>,{"\n"}
-                    {"            "}<span className="text-brand">"APIs REST"</span>{"\n"}
+                    {"            "}<span className="text-brand">&quot;Sistemas Web&quot;</span>,{"\n"}
+                    {"            "}<span className="text-brand">&quot;Automa&ccedil;&otilde;es&quot;</span>,{"\n"}
+                    {"            "}<span className="text-brand">&quot;APIs REST&quot;</span>{"\n"}
                     {"        "}] {"\n"}
                     {"        "}self.disponivel = <span className="text-orange-400">True</span>{"\n"}
                     {"\n"}
                     dev = <span className="text-brand">AlefsanderDev</span>(){"\n"}
-                    <span className="text-blue-400">print</span>(<span className="text-brand">"Vamos construir algo!"</span>)
+                    <span className="text-blue-400">print</span>(<span className="text-brand">&quot;Vamos construir algo!&quot;</span>)
                   </pre>
                 </CardContent>
               </Card>

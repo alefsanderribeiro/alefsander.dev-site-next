@@ -1,6 +1,7 @@
 "use client";
 import { useInView } from "@/hooks/useInView";
 import { Button } from "@/components/ui/button";
+import { Mail } from "lucide-react";
 
 export default function Contact() {
   const { ref, inView } = useInView();
@@ -17,9 +18,13 @@ export default function Contact() {
           </a>
           <p className="text-sm mt-2">Atendo clientes em todo o Brasil.</p>
           <p className="text-sm">Com sede em Porto Velho, Rondônia — Brasil.</p>
-          <Button className="mt-4 bg-brand hover:bg-brand-hover px-8 btn-hover brand-ring">
-            <a href="mailto:contato@alefsander.dev">Enviar E-mail</a>
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-3 mt-4">
+            <Button className="bg-brand hover:bg-brand-hover px-8 btn-hover brand-ring">
+              <a href="mailto:contato@alefsander.dev" className="inline-flex items-center gap-2">
+                <Mail className="w-4 h-4" /> Enviar E-mail
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

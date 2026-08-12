@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { projects, techColors } from "@/lib/projects";
-import { ArrowRight, FolderGit2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, FolderGit2 } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Projetos — Alefsander.DEV",
@@ -13,7 +15,14 @@ export const metadata: Metadata = {
 export default function ProjetosPage() {
   return (
     <main className="min-h-screen">
+      <Header />
       <div className="container mx-auto max-w-6xl py-20 px-4">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-brand transition mb-8"
+        >
+          <ArrowLeft className="w-4 h-4" /> Voltar ao início
+        </Link>
         <h1 className="text-4xl font-bold mb-2">Projetos</h1>
         <p className="text-muted-foreground mb-10 max-w-2xl">
           Cases de clientes, produtos e projetos pessoais de infraestrutura e automação.
@@ -61,6 +70,7 @@ export default function ProjetosPage() {
           ))}
         </div>
       </div>
+      <Footer />
     </main>
   );
 }
