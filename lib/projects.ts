@@ -12,9 +12,13 @@ export interface Project {
   link?: string;
   linkLabel?: string;
   featured?: boolean;
-  // Imagem/thumbnail opcional do projeto. Quando presente, é renderizada no card;
-  // caso contrário o componente usa o placeholder de ícone (FolderGit2).
-  image?: string;
+  /**
+   * Imagens opcionais do projeto (múltiplas por projeto).
+   * `images[0]` é a imagem principal — usada no card da home.
+   * As demais são exibidas no carrossel da página individual.
+   * Quando ausente/vazio, os componentes usam o placeholder de ícone (FolderGit2).
+   */
+  images?: string[];
 }
 
 // Mapa de cores Tailwind p/ cada tech. Padrão existente: "bg-{x}-500/10 text-{x}-400".
@@ -51,7 +55,9 @@ export const techColors: Record<string, string> = {
   "Nginx": "bg-emerald-500/10 text-emerald-400",
 };
 
-export const projects: Project[] = [
+// Lista fonte, escrita como ProjectInput para aceitar o legado `image` singular
+// no mesmo array. Não renderiza nada — apenas dados.
+const rawProjects: ProjectInput[] = [
   {
     slug: "alef-atelie",
     title: "Alef Ateliê",
@@ -136,6 +142,19 @@ export const projects: Project[] = [
     status: "Pessoal",
   },
 ];
+
+// Aceita o formato legado `{ image?: string }` além do novo `{ images?: string[] }`
+// e normaliza sempre para `images?: string[]` (fonte única de verdade).
+type ProjectInput = Omit<Project, "images"> & { images?: string[]; image?: string };
+
+function normalizeImages(input: ProjectInput): Project {
+  const { image, images, ...rest } = input;
+  const merged = image ? [image, ...(images ?? [])] : images;
+  return merged && merged.length > 0 ? { ...rest, images: merged } : { ...rest };
+}
+
+/** Projetos normalizados (fonte única de verdade: `images: string[]`). */
+export const projects: Project[] = rawProjects.map(normalizeImages);
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);

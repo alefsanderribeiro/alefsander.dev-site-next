@@ -62,9 +62,9 @@ export default function Portfolio() {
                   <Link key={project.slug} href={`/projetos/${project.slug}`} className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 rounded-xl">
                     <Card className="border-border hover:border-brand/50 transition-colors overflow-hidden group-hover:card-hover card-hover flex flex-col h-full">
                       <div className="aspect-video bg-muted flex items-center justify-center overflow-hidden">
-                        {project.image ? (
+                        {project.images?.[0] ? (
                           <Image
-                            src={project.image}
+                            src={project.images[0]}
                             alt={project.title}
                             width={800}
                             height={450}
