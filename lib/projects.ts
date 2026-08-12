@@ -12,6 +12,9 @@ export interface Project {
   link?: string;
   linkLabel?: string;
   featured?: boolean;
+  // Imagem/thumbnail opcional do projeto. Quando presente, é renderizada no card;
+  // caso contrário o componente usa o placeholder de ícone (FolderGit2).
+  image?: string;
 }
 
 // Mapa de cores Tailwind p/ cada tech. Padrão existente: "bg-{x}-500/10 text-{x}-400".
@@ -66,7 +69,6 @@ export const projects: Project[] = [
       "Automação administrativa com IA: OCR de documentos, folhas de ponto, holerites, envio por WhatsApp/email e cache Redis (-95% de queries).",
     tech: ["Python", "FastAPI", "Redis", "IA"],
     status: "Produção empresa",
-    featured: true,
   },
   {
     slug: "forticode",
