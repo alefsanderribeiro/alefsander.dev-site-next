@@ -1,13 +1,33 @@
 "use client";
+import Link from "next/link";
+import Image from "next/image";
 import { useInView } from "@/hooks/useInView";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { projects, techColors } from "@/lib/projects";
-import { ExternalLink, FolderGit2 } from "lucide-react";
+import { ArrowRight, ChevronRight, FolderGit2 } from "lucide-react";
+
+const isProduction = (status: string) =>
+  status === "Em produção" || status === "Produção" || status === "Produção empresa";
+
+// Índice visual por posição na lista compacta (1..9).
+const INDEX_STYLES = [
+  "bg-blue-500/10 text-blue-400",
+  "bg-emerald-500/10 text-emerald-400",
+  "bg-amber-500/10 text-amber-400",
+  "bg-fuchsia-500/10 text-fuchsia-400",
+  "bg-cyan-500/10 text-cyan-400",
+  "bg-orange-500/10 text-orange-400",
+  "bg-teal-500/10 text-teal-400",
+  "bg-rose-500/10 text-rose-400",
+  "bg-indigo-500/10 text-indigo-400",
+];
 
 export default function Portfolio() {
   const { ref, inView } = useInView();
   const hasProjects = projects.length > 0;
+  const featured = projects.filter((p) => p.featured);
+  const others = projects.filter((p) => !p.featured);
 
   return (
     <section id="portfolio" className="scroll-mt-16 py-20 px-4" ref={ref}>
@@ -34,56 +54,94 @@ export default function Portfolio() {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, i) => (
-              <Card key={project.slug} className="border-border hover:border-brand/50 transition-colors overflow-hidden group card-hover flex flex-col">
-                <div className="aspect-video bg-muted flex items-center justify-center">
-                  <FolderGit2 className="w-12 h-12 text-muted-foreground/40" />
-                </div>
-                <CardContent className="p-5 flex flex-col gap-3 flex-1">
-                  <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-semibold text-lg">
-                      <a href={`/projetos/${project.slug}`} className="hover:text-brand transition">
-                        {project.title}
-                      </a>
-                    </h3>
-                    <Badge
-                      className={
-                        project.status === "Em produção" || project.status === "Produção" || project.status === "Produção empresa"
-                          ? "text-xs bg-emerald-500/10 text-emerald-400"
-                          : "text-xs bg-amber-500/10 text-amber-400"
-                      }
+          <div className="flex flex-col gap-10">
+            {/* Parte A — Projetos em destaque (cards grandes) */}
+            {featured.length > 0 && (
+              <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${inView ? "reveal-visible-d1" : "reveal-hidden-d1"}`}>
+                {featured.map((project) => (
+                  <Link key={project.slug} href={`/projetos/${project.slug}`} className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 rounded-xl">
+                    <Card className="border-border hover:border-brand/50 transition-colors overflow-hidden group-hover:card-hover card-hover flex flex-col h-full">
+                      <div className="aspect-video bg-muted flex items-center justify-center overflow-hidden">
+                        {project.image ? (
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            width={800}
+                            height={450}
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                        ) : (
+                          <FolderGit2 className="w-12 h-12 text-muted-foreground/40 transition-colors group-hover:text-brand/50" />
+                        )}
+                      </div>
+                      <CardContent className="p-5 flex flex-col gap-3 flex-1">
+                        <div className="flex items-start justify-between gap-2">
+                          <h3 className="font-semibold text-lg group-hover:text-brand transition-colors">{project.title}</h3>
+                          <Badge
+                            className={
+                              isProduction(project.status)
+                                ? "text-xs bg-emerald-500/10 text-emerald-400"
+                                : "text-xs bg-amber-500/10 text-amber-400"
+                            }
+                          >
+                            {project.status}
+                          </Badge>
+                        </div>
+                        <p className="text-sm text-muted-foreground flex-1">{project.description}</p>
+                        {project.tech.length > 0 && (
+                          <div className="flex flex-wrap gap-1.5">
+                            {project.tech.map((t) => (
+                              <Badge key={t} className={`text-xs ${techColors[t] || "bg-muted text-muted-foreground"}`}>{t}</Badge>
+                            ))}
+                          </div>
+                        )}
+                        <span className="inline-flex items-center gap-1.5 text-sm text-brand font-medium mt-1 transition group-hover:gap-2.5">
+                          Ver detalhes <ArrowRight className="w-4 h-4" />
+                        </span>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {/* Parte B — Demais projetos (lista compacta) */}
+            {others.length > 0 && (
+              <div className={`flex flex-col gap-3 ${inView ? "reveal-visible-d2" : "reveal-hidden-d2"}`}>
+                {others.map((project, i) => (
+                  <Link
+                    key={project.slug}
+                    href={`/projetos/${project.slug}`}
+                    className="group flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-brand/50 hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60"
+                  >
+                    <span
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-xs font-semibold ${INDEX_STYLES[i % INDEX_STYLES.length]}`}
+                      aria-hidden="true"
                     >
-                      {project.status}
-                    </Badge>
-                  </div>
-                  <p className="text-sm text-muted-foreground flex-1">{project.description}</p>
-                  {project.tech.length > 0 && (
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tech.map((t) => (
-                        <Badge key={t} className={`text-xs ${techColors[t] || "bg-muted text-muted-foreground"}`}>{t}</Badge>
-                      ))}
-                    </div>
-                  )}
-                  {project.link ? (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm text-brand hover:text-brand-hover font-medium mt-1 transition"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      {project.linkLabel || "Ver projeto"}
-                    </a>
-                  ) : (
-                    <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground/60 mt-1">
-                      <ExternalLink className="w-4 h-4" />
-                      Privado
+                      {String(i + 1).padStart(2, "0")}
                     </span>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
+
+                    <div className="flex min-w-0 flex-col gap-1 flex-1">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="font-semibold text-sm group-hover:text-brand transition-colors">{project.title}</h3>
+                      </div>
+                      <p className="truncate text-sm text-muted-foreground">{project.description}</p>
+                      {project.tech.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.tech.map((t) => (
+                            <span key={t} className={`inline-flex h-5 items-center rounded-4xl px-2 text-[11px] font-medium ${techColors[t] || "bg-muted text-muted-foreground"}`}>
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    <ChevronRight className="w-4 h-4 shrink-0 text-muted-foreground/60 transition-transform group-hover:translate-x-0.5 group-hover:text-brand" />
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>
