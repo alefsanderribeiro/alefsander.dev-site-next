@@ -19,8 +19,6 @@ export interface CaseStudy {
   slug: string;
   /** Linha de abertura — leva/hero do case. */
   summary: string;
-  /** Optional link de imagem local (public/). Quando ausente, usa placeholder. */
-  image?: string;
   sections: CaseStudySection[];
   stack: string[];
   links: CaseStudyLink[];

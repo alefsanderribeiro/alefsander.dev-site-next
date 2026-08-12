@@ -5,7 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { getProject, projects, techColors } from "@/lib/projects";
 import { getCaseStudy } from "@/lib/caseStudies";
-import { ArrowLeft, CheckCircle2, ExternalLink, FolderGit2 } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ExternalLink } from "lucide-react";
+import ImageCarousel from "@/components/project/ImageCarousel";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -71,20 +72,10 @@ export default async function ProjectPage({ params }: Props) {
           ))}
         </div>
 
-        {/* Imagem / hero */}
+        {/* Carrossel de imagens (usado apenas quando `project.images` tem 1+ itens;
+            senão o componente renderiza o placeholder de ícone). logo abaixo do status. */}
         <div className="mb-8">
-          {project.image ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full aspect-video object-cover rounded-xl border border-border"
-            />
-          ) : (
-            <div className="flex aspect-video w-full items-center justify-center rounded-xl border border-border bg-muted">
-              <FolderGit2 className="h-12 w-12 text-muted-foreground/40" />
-            </div>
-          )}
+          <ImageCarousel title={project.title} images={project.images} />
         </div>
 
         <Card className="border-border mb-8">
