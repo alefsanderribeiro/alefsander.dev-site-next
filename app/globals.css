@@ -209,6 +209,12 @@
 .section-link:hover::after {
   width: 100%;
 }
+.section-link-active::after {
+  width: 100%;
+}
+.section-link-active:hover::after {
+  width: 100%;
+}
 .terminal-dot {
   animation: terminalPulse 2s ease-in-out infinite;
 }
