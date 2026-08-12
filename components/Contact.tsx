@@ -1,9 +1,7 @@
 "use client";
 import { useInView } from "@/hooks/useInView";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Mail } from "lucide-react";
-
-const WHATSAPP_URL = "https://wa.me/556993451333";
+import { Mail } from "lucide-react";
 
 export default function Contact() {
   const { ref, inView } = useInView();
@@ -24,17 +22,6 @@ export default function Contact() {
             <Button className="bg-brand hover:bg-brand-hover px-8 btn-hover brand-ring">
               <a href="mailto:contato@alefsander.dev" className="inline-flex items-center gap-2">
                 <Mail className="w-4 h-4" /> Enviar E-mail
-              </a>
-            </Button>
-            <Button variant="outline" className="px-8 btn-hover">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
-                aria-label="WhatsApp — abre em nova aba"
-              >
-                <MessageCircle className="w-4 h-4" /> Conversar no WhatsApp
               </a>
             </Button>
           </div>

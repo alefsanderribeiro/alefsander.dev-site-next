@@ -1,9 +1,6 @@
 "use client";
 import { useInView } from "@/hooks/useInView";
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle } from "lucide-react";
-
-const WHATSAPP_URL = "https://wa.me/556993451333";
 
 export default function Links() {
   const { ref, inView } = useInView();
@@ -38,19 +35,6 @@ export default function Links() {
                 </div>
                 <div className="font-semibold text-lg">LinkedIn</div>
                 <div className="text-brand font-mono text-sm">alefsander</div>
-              </CardContent>
-            </a>
-          </Card>
-          <Card className="border-border flex-1 hover:border-brand/50 hover:bg-muted transition card-hover group">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp — abre em nova aba" className="block p-6">
-              <CardContent className="p-0 text-center">
-                <div className="flex justify-center mb-3">
-                  <div className="flex h-8 w-8 items-center justify-center group-hover:text-brand transition">
-                    <MessageCircle className="w-8 h-8" />
-                  </div>
-                </div>
-                <div className="font-semibold text-lg">WhatsApp</div>
-                <div className="text-brand font-mono text-sm">+55 69 9345-1333</div>
               </CardContent>
             </a>
           </Card>
