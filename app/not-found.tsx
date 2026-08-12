@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { FolderGit2, Home } from "lucide-react";
+import { Home } from "lucide-react";
 
 export default function NotFound() {
   return (
@@ -17,7 +17,7 @@ export default function NotFound() {
           <h1 className="text-3xl font-bold mb-4">Página não encontrada</h1>
           <p className="text-muted-foreground mb-8">
             O conteúdo que você procura pode ter sido movido ou não existe mais.
-            Que tal voltar para o início ou conferir os projetos?
+            Que tal voltar para o início?
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
@@ -25,12 +25,6 @@ export default function NotFound() {
               className="inline-flex items-center justify-center gap-2 h-10 px-6 rounded-lg bg-brand text-white text-sm font-medium hover:bg-brand-hover transition"
             >
               <Home className="w-4 h-4" /> Voltar ao início
-            </Link>
-            <Link
-              href="/projetos"
-              className="inline-flex items-center justify-center gap-2 h-10 px-6 rounded-lg border border-border text-sm font-medium hover:bg-muted transition"
-            >
-              <FolderGit2 className="w-4 h-4" /> Ver projetos
             </Link>
           </div>
         </div>
