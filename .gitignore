@@ -43,3 +43,6 @@ next-env.d.ts
 # Documentos internos de pesquisa — NÃO subir (repo público)
 /research-portfolio/
 
+# Relatórios internos de auditoria — NÃO subir (repo público)
+/relatorios/
+
