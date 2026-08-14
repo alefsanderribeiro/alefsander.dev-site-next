@@ -4,10 +4,9 @@ Site pessoal/portfólio do **Alefsander** — apresenta projetos, experiência e
 
 ## 🔗 Deploy
 
-- **Site oficial:** https://alefsander.dev (Vercel) — **canal principal**
-- **Secundário:** https://alefsanderribeiro.github.io/alefsander.dev-site-next/ (GitHub Pages, via GitHub Actions em `master`)
+- **Site:** https://alefsander.dev (Vercel)
 
-> O site é uma build **estática** (`output: 'export'`), o que o torna compatível com os dois deploys.
+> O site é uma build **estática** (`output: 'export'`), servida pelo Vercel.
 
 ## 🧱 Stack
 
@@ -17,7 +16,7 @@ Site pessoal/portfólio do **Alefsander** — apresenta projetos, experiência e
 - Tailwind CSS
 - shadcn/ui
 - next-themes (dark/light)
-- Deploy estático (Vercel + GitHub Pages)
+- Deploy estático (Vercel)
 
 ## 🚀 Rodando localmente
 
