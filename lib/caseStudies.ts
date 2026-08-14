@@ -547,7 +547,7 @@ export const caseStudies: Record<string, CaseStudy> = {
   "alefsander-openclaw": {
     slug: "alefsander-openclaw",
     summary:
-      "OpenClaw customizado em Docker: construindo um assistente de IA pessoal self-hosted com voz local, OCR e automação de navegador — uma equipe de agentes orquestrados rodando 24/7.",
+      "OpenClaw customizado em Docker: um orquestrador pessoal de agentes de IA self-hosted com voz local (Whisper/GPU), OCR/PDF, automação de navegador e 4 agentes pré-configurados rodando 24/7 — portátil, documentado e reproduzível.",
     sections: [
       {
         title: "Problema",
@@ -571,7 +571,11 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         title: "Funcionalidades",
         bullets: [
-          "Assistente pessoal 24/7 — disponível em webchat, mensageiro e telegram, com memória de longo prazo.",
+          "Assistente pessoal 24/7 — acessível por canais diversos (mensageiro, webchat), com memória de longo prazo.",
+          "Aceleração de GPU (NVIDIA/PyTorch) para reconhecimento de voz local (Whisper).",
+          "Processamento de áudio/vídeo com ffmpeg.",
+          "Monitoramento do servidor e dos próprios containers via Uptime Kuma e Netdata, acessíveis pelo agente.",
+          "Documentação completa da operação em docs/ e script de setup automatizado (docker-setup.sh).",
           "Voz local — transcrição de áudio sem custo de API, 100% local, com fallback inteligente de GPU para CPU.",
           "OCR + PDF — leitura de documentos escaneados e extração de texto de PDFs.",
           "Automação de navegador — Chromium/Playwright para jobs que exigem browser.",
@@ -595,6 +599,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         title: "Resultado",
         bullets: [
           "Ecossistema de agentes rodando 24/7 no servidor pessoal, não na nuvem de terceiros.",
+          "Repositório público com documentação completa (docs/) e script de setup automatizado (docker-setup.sh).",
+          "Imagem reproduzível que espelha a instalação real em produção.",
           "Usado diariamente para automações reais: extração de produtos, monitoramento de infra, automação residencial, sincronização de contas, buscas privadas e cofre central de credenciais.",
           "Projeto público no GitHub, documentado em português e inglês, com script de onboarding para iniciantes.",
           "Prova de conceito de 'plataforma de agentes pessoal' — como empacotar uma orquestradora de IA com ferramentas locais numa imagem reproduzível.",
@@ -609,10 +615,11 @@ export const caseStudies: Record<string, CaseStudy> = {
           "Automatizar a rede externa do compose, para não se perder em recriações.",
           "Menos segredos em vias improvisadas — padronizar um endpoint seguro para o container acessar credenciais.",
           "Documentar a 'teoria' junto da prática, consolidando as lições operacionais num único guia.",
+          "Versão atual implementou boa parte destas lições: documentação em docs/, versionamento das automações e docker-setup.sh para onboarding replicável.",
         ],
       },
     ],
-    stack: ["Docker", "Node.js", "Whisper", "OCR"],
+    stack: ["Docker", "Node.js", "Python", "OpenClaw", "Whisper", "OCR", "Playwright", "ffmpeg", "Tailscale"],
     links: [
       { label: "GitHub", href: "https://github.com/alefsanderribeiro/alefsander-openclaw", external: true },
     ],
